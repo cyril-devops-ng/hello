@@ -1,0 +1,33 @@
+<%= link_to "back" , _back_url %>
+<h1>Listing phonebooks</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Fullname</th>
+      <th>Phoneno</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phonebooks.each do |phonebook| %>
+      <tr>
+        <td><%= phonebook.fullname %></td>
+        <td><%= phonebook.phoneno %></td>
+        <td><%= phonebook.address %></td>
+        <td><%= phonebook.email %></td>
+        <td><%= link_to 'Show', phonebook %></td>
+        <td><%= link_to 'Edit', edit_phonebook_path(phonebook) %></td>
+        <td><%= link_to 'Destroy', phonebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phonebook', new_phonebook_path %>
